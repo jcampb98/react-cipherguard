@@ -16,3 +16,8 @@ body, html, #root {
 .centered {
   text-align: center;
 }
+
+.line-break {
+  margin-top: 100px;
+  border: none;
+}

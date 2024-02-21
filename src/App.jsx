@@ -1,14 +1,14 @@
 import './App.css';
 import PasswordGenerator from './PasswordGenerator.jsx';
-import ReasonsToUse from './ReasonsToUse.jsx';
+import CollapsibleList from './CollapsibleList.jsx';
 
 function App() {
   return (
     <div className="app-container">
       <div className="centered">
         <PasswordGenerator />
-        <hr/>
-        <ReasonsToUse />
+        <hr className='line-break'/>
+        <CollapsibleList />
       </div>
     </div>
   );
