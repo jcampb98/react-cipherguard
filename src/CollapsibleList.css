@@ -33,21 +33,21 @@
 }
 
 .list {
-    list-style-type: none;
-    padding-left: 0;
-    margin-top: 10px;
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 10px;
 }
 
 .list li {
-    padding: 10px;
-    border-top: 1px solid #ddd;
+  padding: 10px;
+  border-top: 1px solid #ddd;
 }
 
 .list li:first-child {
-    border-top: none;
+  border-top: none;
 }
 
 .list li strong {
-    font-weight: bold;
-    margin-right: 5px;
+  font-weight: bold;
+  margin-right: 5px;
 }
