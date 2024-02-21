@@ -3,7 +3,7 @@
 
 /* Apply Poppins font to all text in the app */
 body, html, #root {
-  font-family: 'Poppins', sans-serif;
+  font-family: Poppins, sans-serif;
 }
 
 .app-container {

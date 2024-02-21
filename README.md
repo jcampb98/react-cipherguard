@@ -23,7 +23,7 @@ for modern web projects.
 1. Clone this repository to your local machine.
 
 ```
-git clone https://github.com/your-username/password-generator.git
+git clone https://github.com/jcampb98/react-cipherguard
 ```
 
 2. Navigate to the project directory.
