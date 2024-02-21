@@ -9,15 +9,20 @@ body, html, #root {
 .app-container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   height: 100vh;
 }
 
 .centered {
   text-align: center;
+  margin-top: 50px; /* Add margin to create space between components */
+  margin-left: 50px;
+  padding: 0 20px; /* Add padding to prevent content from being pushed off-center */
+  box-sizing: border-box; /* Include padding in the element's total width */
+  width: 100%; /* Ensure the centered content takes up the full width */
+  max-width: 600px; /* Limit the width of the content */
 }
 
-.line-break {
-  margin-top: 100px;
-  border: none;
+.collapsible-container {
+  margin-top: 20px; /* Add space between the Password Generator and Collapsible List */
 }
