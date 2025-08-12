@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './CollapsibleList.css'; // You can define your CSS styles in this file
+import './css/CollapsibleList.css'; // You can define your CSS styles in this file
 
 function CollapsibleList() {
     const items = [

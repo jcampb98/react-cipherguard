@@ -1,4 +1,4 @@
-import './App.css';
+import './css/App.css';
 import PasswordGenerator from './PasswordGenerator.jsx';
 import CollapsibleList from './CollapsibleList.jsx';
 

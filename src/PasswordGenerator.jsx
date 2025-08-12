@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './PasswordGenerator.css';
+import './css/PasswordGenerator.css';
 
 function PasswordGenerator() {
   const [password, setPassword] = useState("");
