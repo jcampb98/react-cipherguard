@@ -29,7 +29,7 @@ git clone https://github.com/jcampb98/react-cipherguard
 2. Navigate to the project directory.
 
 ```
-cd password-generator
+cd react-cipherguard
 ```
 
 3. Install dependencies using npm or yarn.
