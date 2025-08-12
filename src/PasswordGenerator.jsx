@@ -12,37 +12,74 @@ function PasswordGenerator() {
     useUpperCase: true,
   });
 
-  const generatePassword = () => {
+  const CHARSET_OPTIONS = {
+    symbols: "!@#$%^&*()",
+    numbers: "0123456789",
+    lowercase: "abcdefghijklmnopqrstuvwxyz",
+    uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  }
+
+  const MESSAGE_TIMEOUT = 10000; // 10 seconds
+
+  const buildCharset = (options) => {
     let charset = "";
+
+    if (options.useSymbols) charset += CHARSET_OPTIONS.symbols;
+    if (options.useNumbers) charset += CHARSET_OPTIONS.numbers;
+    if (options.useLowerCase) charset += CHARSET_OPTIONS.lowercase;
+    if (options.useUpperCase) charset += CHARSET_OPTIONS.uppercase;
+
+    return charset;
+  }
+
+  const generateSecureRandomIndex = (max) => {
+    const randomArray = new Uint32Array(1);
+    crypto.getRandomValues(randomArray);
+    return randomArray[0] % max;
+  }
+
+  const showMessage = (text, type) => {
+    setMessage({ text, type });
+    setTimeout(() => setMessage(""), MESSAGE_TIMEOUT);
+  };
+
+  const generatePassword = () => {
     let newPassword = "";
+    
+    if(passwordLength < 10) {
+      showMessage("Password must be at least 10 characters long", "error");
+      return;
+    }
 
-    if (options.useSymbols) charset += "!@#$%^&*()";
-    if (options.useNumbers) charset += "0123456789";
-    if (options.useLowerCase) charset += "abcdefghijklmnopqrstuvwxyz";
-    if (options.useUpperCase) charset += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const charset = buildCharset(options);
 
-    if(!charset) {
-      setMessage({text: "Error: Invalid Selection, Please Select a checkboxes between Symbols to UpperCase", type: "error"});
-      setTimeout(() => setMessage(""), 3000); // Hide message after 3 seconds
+    if (!charset) {
+      showMessage("Please select at least one character type (symbols, numbers, lowercase, or uppercase)", "error");
       return;
     }
 
     for (let i = 0; i < passwordLength; i++) {
-        newPassword += charset.charAt(Math.floor(Math.random() * charset.length));
+        const randomIndex = generateSecureRandomIndex(charset.length);
+        newPassword += charset.charAt(randomIndex);
     }
 
     setPassword(newPassword);
   };
   
   const copyToClipboard = () => {
-    const el = document.createElement("textarea");
-    el.value = password;
-    document.body.appendChild(el);
-    el.select();
-    document.execCommand("copy");
-    document.body.removeChild(el);
-    setMessage({text: "Password copied to clipboard!", type: "success"});
-    setTimeout(() => setMessage(""), 2000); // Hide message after 2 seconds
+    // This get's the text field
+    const copyText = document.createElement("textarea");
+
+    //This gets the copyText value from the string state
+    copyText.value = password;
+
+    // Selects the text field
+    copyText.select();
+
+    // Copy's the text inside the text field
+    navigator.clipboard.writeText(copyText.value);
+
+    showMessage("Password copied to clipboard!", "success");
   }
 
   const handleOptionChange = (option) => {
