@@ -72,38 +72,48 @@ function PasswordGenerator() {
         />
       </div>
       <div className="checkbox-container">
-        <label>
-          <input 
-            type="checkbox" 
-            checked={options.useSymbols} 
-            onChange={() => handleOptionChange('useSymbols')} 
-          />
-          Symbols
-        </label>
-        <label>
-          <input 
-            type="checkbox" 
-            checked={options.useNumbers} 
-            onChange={() => handleOptionChange('useNumbers')} 
-          />
-          Numbers
-        </label>
-        <label>
-          <input 
-            type="checkbox" 
-            checked={options.useLowerCase} 
-            onChange={() => handleOptionChange('useLowerCase')} 
-          />
-          LowerCase
-        </label>
-        <label>
-          <input 
-            type="checkbox" 
-            checked={options.useUpperCase} 
-            onChange={() => handleOptionChange('useUpperCase')} 
-          />
-          UpperCase
-        </label>
+        <ul className='checkbox-unordered-list'>
+          <li className='checkbox-list'>
+            <label>
+              <input 
+                type="checkbox" 
+                checked={options.useSymbols} 
+                onChange={() => handleOptionChange('useSymbols')} 
+              />
+              Symbols
+            </label>
+          </li>
+          <li className='checkbox-list'>
+            <label>
+              <input 
+                type="checkbox" 
+                checked={options.useNumbers} 
+                onChange={() => handleOptionChange('useNumbers')} 
+              />
+              Numbers
+            </label>
+          </li>
+          <li className='checkbox-list'>
+            <label>
+              <input 
+                type="checkbox" 
+                checked={options.useLowerCase} 
+                onChange={() => handleOptionChange('useLowerCase')} 
+              />
+              LowerCase
+            </label>
+          </li>
+          <li className='checkbox-list'>
+            <label>
+              <input 
+                type="checkbox" 
+                checked={options.useUpperCase} 
+                onChange={() => handleOptionChange('useUpperCase')} 
+              />
+              UpperCase
+            </label>
+          </li>
+        </ul>
       </div>
       <button className='button' onClick={generatePassword}>
         Generate Password
